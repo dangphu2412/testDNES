@@ -34,6 +34,10 @@ function findItemAbundant(array) {
 function handleRequest() {
     document.getElementById('submit').addEventListener('click', function() {
         const input = query('#inputArray').value;
+        input.trim();
+        if (input === '') {
+            return;
+        }
         const array = input.slice().split(',');
         query('#inputDisplay').innerHTML = `Your input: [${array}]`;
         query('#result').innerHTML = `Your result: ${findItemAbundant(array)}`;
